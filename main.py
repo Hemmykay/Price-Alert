@@ -7,7 +7,7 @@ from keep_alive import keep_alive
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 
 parameters = {
-  'symbol':'SOLBEAR',
+  'symbol':'SOL',
   'convert':'USD'
 }
 
@@ -25,7 +25,7 @@ response = session.get(url, params=parameters)
 
 
 value = json.loads(response.text)
-value1 = value['data']['SOLBEAR']['quote']['USD']['price']
+value1 = value['data']['SOL']['quote']['USD']['price']
 price = "{:.8f}".format(value1)
 
 client = discord.Client()
@@ -40,7 +40,7 @@ async def on_ready():
             return
 
         if message.content.startswith('$price'):
-            await message.channel.send('🇸 🇴 🇱 🇦 🇷  🇧 🇪 🇦 🇷  🇵 🇷 🇮 🇨 🇪' + '\n' + '$' + price)
+            await message.channel.send('🇸 🇴 🇱 ' + '\n' + '$' + price)
 
 
 keep_alive()
